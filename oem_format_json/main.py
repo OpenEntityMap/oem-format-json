@@ -23,7 +23,7 @@ class JsonFormat(Format, Plugin):
 
     def dump_file(self, obj, fp):
         try:
-            json.dump(obj, fp, separators=(',', ':'))
+            json.dump(obj, fp, separators=(',', ':'), sort_keys=True)
             return True
         except Exception, ex:
             log.warn('Unable to dump object to file: %s', ex, exc_info=True)
@@ -32,7 +32,7 @@ class JsonFormat(Format, Plugin):
 
     def dump_string(self, obj):
         try:
-            json.dumps(obj, separators=(',', ':'))
+            json.dumps(obj, separators=(',', ':'), sort_keys=True)
             return True
         except Exception, ex:
             log.warn('Unable to dump object: %s', ex, exc_info=True)
