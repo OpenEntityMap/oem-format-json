@@ -16,7 +16,7 @@ class JsonPrettyFormat(JsonFormat, Plugin):
         try:
             json.dump(obj, fp, sort_keys=True, indent=4, separators=(',', ': '))
             return True
-        except Exception, ex:
+        except Exception as ex:
             log.warn('Unable to dump object to file: %s', ex, exc_info=True)
 
         return False
@@ -25,7 +25,7 @@ class JsonPrettyFormat(JsonFormat, Plugin):
         try:
             json.dumps(obj, sort_keys=True, indent=4, separators=(',', ': '))
             return True
-        except Exception, ex:
+        except Exception as ex:
             log.warn('Unable to dump object: %s', ex, exc_info=True)
 
         return False

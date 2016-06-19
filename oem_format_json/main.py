@@ -25,7 +25,7 @@ class JsonFormat(Format, Plugin):
         try:
             json.dump(obj, fp, separators=(',', ':'), sort_keys=True)
             return True
-        except Exception, ex:
+        except Exception as ex:
             log.warn('Unable to dump object to file: %s', ex, exc_info=True)
 
         return False
@@ -34,7 +34,7 @@ class JsonFormat(Format, Plugin):
         try:
             json.dumps(obj, separators=(',', ':'), sort_keys=True)
             return True
-        except Exception, ex:
+        except Exception as ex:
             log.warn('Unable to dump object: %s', ex, exc_info=True)
 
         return False
@@ -42,7 +42,7 @@ class JsonFormat(Format, Plugin):
     def load_file(self, fp):
         try:
             return json.load(fp)
-        except Exception, ex:
+        except Exception as ex:
             log.warn('Unable to load object from file: %s', ex, exc_info=True)
 
         return None
@@ -50,7 +50,7 @@ class JsonFormat(Format, Plugin):
     def load_string(self, value):
         try:
             return json.loads(value)
-        except Exception, ex:
+        except Exception as ex:
             log.warn('Unable to load object: %s', ex, exc_info=True)
 
         return None
