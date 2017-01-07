@@ -32,12 +32,11 @@ class JsonFormat(Format, Plugin):
 
     def dump_string(self, obj):
         try:
-            json.dumps(obj, separators=(',', ':'), sort_keys=True)
-            return True
+            return json.dumps(obj, separators=(',', ':'), sort_keys=True)
         except Exception as ex:
             log.warn('Unable to dump object: %s', ex, exc_info=True)
 
-        return False
+        return None
 
     def load_file(self, fp):
         try:

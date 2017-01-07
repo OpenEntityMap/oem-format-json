@@ -23,9 +23,8 @@ class JsonPrettyFormat(JsonFormat, Plugin):
 
     def dump_string(self, obj):
         try:
-            json.dumps(obj, sort_keys=True, indent=4, separators=(',', ': '))
-            return True
+            return json.dumps(obj, sort_keys=True, indent=4, separators=(',', ': '))
         except Exception as ex:
             log.warn('Unable to dump object: %s', ex, exc_info=True)
 
-        return False
+        return None
